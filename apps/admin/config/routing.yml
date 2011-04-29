@@ -1,3 +1,21 @@
+album:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Album
+    module:               album
+    prefix_path:          /album
+    column:               id
+    with_wildcard_routes: true
+
+country:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Country
+    module:               country
+    prefix_path:          /country
+    column:               id
+    with_wildcard_routes: true
+
 artist:
   class: sfDoctrineRouteCollection
   options:

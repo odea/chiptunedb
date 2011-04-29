@@ -6,9 +6,19 @@ Artist:
   columns:
     id: { type: integer, autoincrement: true, primary: true, notnull: true }
     name: { type: string(255), notnull: true, unique: true }
-    country: { type: string(255), notnull: true }
     url: { type: string(255)  }
+    image: { type: string(255)  }
     is_activated: { type: boolean, notnull: true, default: 0 }
+    country_id: { type: integer, notnull: true, unique: true  }
+
+Country:
+  columns:
+    id: { type: integer, autoincrement: true, primary: true, notnull: true, unique: true }
+    iso: { type: string(2), notnull: true, unique: true }
+    name: { type: string(255), notnull: true, unique: true }
+    printable_name: { type: string(255), notnull: true, unique: true }
+    iso3: { type: string(3), notnull: true, unique: true }
+    numcode: { type: integer(3), notnull: true, unique: true }
 
 Track:
   actAs: { Timestampable: ~ }

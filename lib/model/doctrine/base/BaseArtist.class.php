@@ -7,22 +7,28 @@
  * 
  * @property integer $id
  * @property string $name
- * @property string $country
  * @property string $url
+ * @property string $image
  * @property boolean $is_activated
+ * @property integer $country_id
+ * @property Country $Country
  * @property Doctrine_Collection $Track
  * 
  * @method integer             getId()           Returns the current record's "id" value
  * @method string              getName()         Returns the current record's "name" value
- * @method string              getCountry()      Returns the current record's "country" value
  * @method string              getUrl()          Returns the current record's "url" value
+ * @method string              getImage()        Returns the current record's "image" value
  * @method boolean             getIsActivated()  Returns the current record's "is_activated" value
+ * @method integer             getCountryId()    Returns the current record's "country_id" value
+ * @method Country             getCountry()      Returns the current record's "Country" value
  * @method Doctrine_Collection getTrack()        Returns the current record's "Track" collection
  * @method Artist              setId()           Sets the current record's "id" value
  * @method Artist              setName()         Sets the current record's "name" value
- * @method Artist              setCountry()      Sets the current record's "country" value
  * @method Artist              setUrl()          Sets the current record's "url" value
+ * @method Artist              setImage()        Sets the current record's "image" value
  * @method Artist              setIsActivated()  Sets the current record's "is_activated" value
+ * @method Artist              setCountryId()    Sets the current record's "country_id" value
+ * @method Artist              setCountry()      Sets the current record's "Country" value
  * @method Artist              setTrack()        Sets the current record's "Track" collection
  * 
  * @package    chiptunedb
@@ -46,12 +52,11 @@ abstract class BaseArtist extends sfDoctrineRecord
              'unique' => true,
              'length' => 255,
              ));
-        $this->hasColumn('country', 'string', 255, array(
+        $this->hasColumn('url', 'string', 255, array(
              'type' => 'string',
-             'notnull' => true,
              'length' => 255,
              ));
-        $this->hasColumn('url', 'string', 255, array(
+        $this->hasColumn('image', 'string', 255, array(
              'type' => 'string',
              'length' => 255,
              ));
@@ -60,11 +65,21 @@ abstract class BaseArtist extends sfDoctrineRecord
              'notnull' => true,
              'default' => 0,
              ));
+        $this->hasColumn('country_id', 'integer', 8, array(
+             'type' => 'integer',
+             'notnull' => true,
+             'unique' => true,
+             'length' => 8,
+             ));
     }
 
     public function setUp()
     {
         parent::setUp();
+        $this->hasOne('Country', array(
+             'local' => 'country_id',
+             'foreign' => 'id'));
+
         $this->hasMany('Track', array(
              'local' => 'id',
              'foreign' => 'artist_id'));
