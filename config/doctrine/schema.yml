@@ -6,8 +6,9 @@ Artist:
   columns:
     id: { type: integer, autoincrement: true, primary: true, notnull: true }
     name: { type: string(255), notnull: true, unique: true }
-    url: { type: string(255)  }
-    image: { type: string(255)  }
+    alias: { type: string(255), notnull: true, unique: true }
+    url: { type: string(255) }
+    image: { type: string(255) }
     is_activated: { type: boolean, notnull: true, default: 0 }
     country_id: { type: integer, notnull: true, unique: true  }
 
@@ -23,15 +24,28 @@ Country:
 Track:
   actAs: { Timestampable: ~ }
   columns:
+    id: { type: integer, autoincrement: true, primary: true, notnull: true }
     title: { type: string(255), notnull: true, unique: true }
     number: { type: string(255), notnull: true }
     artist_id: { type: integer, notnull: true }
+    album_id: { type: integer, notnull: true }
 
 Album:
   actAs: { Timestampable: ~ }
   columns:
+    id: { type: integer, autoincrement: true, primary: true, notnull: true }
     title: { type: string(255), notnull: true, unique: true }
-    image: { type: string(255)  }
-    year: { type: integer(4)  }
+    image: { type: string(255) }
+    year: { type: integer(4) }
+    dl_url: { type: string(255) }
     is_activated: { type: boolean, notnull: true, default: 0 }
     is_va: { type: boolean, notnull: true, default: 0 }
+    label_id: { type: integer, notnull: true }
+
+Label:
+  actAs: { Timestampable: ~ }
+  columns:
+    id: { type: integer, autoincrement: true, primary: true, notnull: true }
+    name: { type: string(255), notnull: true, unique: true }
+    logo: { type: string(255) }
+    url: { type: string(255) }

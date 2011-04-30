@@ -1,3 +1,12 @@
+label:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Label
+    module:               label
+    prefix_path:          /label
+    column:               id
+    with_wildcard_routes: true
+
 album:
   class: sfDoctrineRouteCollection
   options:

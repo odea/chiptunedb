@@ -14,6 +14,7 @@ abstract class BaseArtistFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'name'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'alias'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'url'          => new sfWidgetFormFilterInput(),
       'image'        => new sfWidgetFormFilterInput(),
       'is_activated' => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
@@ -24,6 +25,7 @@ abstract class BaseArtistFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'name'         => new sfValidatorPass(array('required' => false)),
+      'alias'        => new sfValidatorPass(array('required' => false)),
       'url'          => new sfValidatorPass(array('required' => false)),
       'image'        => new sfValidatorPass(array('required' => false)),
       'is_activated' => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
@@ -51,6 +53,7 @@ abstract class BaseArtistFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'           => 'Number',
       'name'         => 'Text',
+      'alias'        => 'Text',
       'url'          => 'Text',
       'image'        => 'Text',
       'is_activated' => 'Boolean',

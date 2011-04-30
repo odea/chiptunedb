@@ -1,36 +1,34 @@
 <?php
 
 /**
- * Track filter form base class.
+ * Label filter form base class.
  *
  * @package    chiptunedb
  * @subpackage filter
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
-abstract class BaseTrackFormFilter extends BaseFormFilterDoctrine
+abstract class BaseLabelFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'title'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'number'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'artist_id'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Artist'), 'add_empty' => true)),
-      'album_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Album'), 'add_empty' => true)),
+      'name'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'logo'       => new sfWidgetFormFilterInput(),
+      'url'        => new sfWidgetFormFilterInput(),
       'created_at' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
     ));
 
     $this->setValidators(array(
-      'title'      => new sfValidatorPass(array('required' => false)),
-      'number'     => new sfValidatorPass(array('required' => false)),
-      'artist_id'  => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Artist'), 'column' => 'id')),
-      'album_id'   => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Album'), 'column' => 'id')),
+      'name'       => new sfValidatorPass(array('required' => false)),
+      'logo'       => new sfValidatorPass(array('required' => false)),
+      'url'        => new sfValidatorPass(array('required' => false)),
       'created_at' => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at' => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
     ));
 
-    $this->widgetSchema->setNameFormat('track_filters[%s]');
+    $this->widgetSchema->setNameFormat('label_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
@@ -41,17 +39,16 @@ abstract class BaseTrackFormFilter extends BaseFormFilterDoctrine
 
   public function getModelName()
   {
-    return 'Track';
+    return 'Label';
   }
 
   public function getFields()
   {
     return array(
       'id'         => 'Number',
-      'title'      => 'Text',
-      'number'     => 'Text',
-      'artist_id'  => 'ForeignKey',
-      'album_id'   => 'ForeignKey',
+      'name'       => 'Text',
+      'logo'       => 'Text',
+      'url'        => 'Text',
       'created_at' => 'Date',
       'updated_at' => 'Date',
     );

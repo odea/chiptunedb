@@ -17,6 +17,7 @@ abstract class BaseArtistForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'           => new sfWidgetFormInputHidden(),
       'name'         => new sfWidgetFormInputText(),
+      'alias'        => new sfWidgetFormInputText(),
       'url'          => new sfWidgetFormInputText(),
       'image'        => new sfWidgetFormInputText(),
       'is_activated' => new sfWidgetFormInputCheckbox(),
@@ -28,6 +29,7 @@ abstract class BaseArtistForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'           => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'name'         => new sfValidatorString(array('max_length' => 255)),
+      'alias'        => new sfValidatorString(array('max_length' => 255)),
       'url'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'image'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'is_activated' => new sfValidatorBoolean(array('required' => false)),
@@ -39,6 +41,7 @@ abstract class BaseArtistForm extends BaseFormDoctrine
     $this->validatorSchema->setPostValidator(
       new sfValidatorAnd(array(
         new sfValidatorDoctrineUnique(array('model' => 'Artist', 'column' => array('name'))),
+        new sfValidatorDoctrineUnique(array('model' => 'Artist', 'column' => array('alias'))),
         new sfValidatorDoctrineUnique(array('model' => 'Artist', 'column' => array('country_id'))),
       ))
     );

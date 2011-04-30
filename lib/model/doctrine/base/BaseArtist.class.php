@@ -7,6 +7,7 @@
  * 
  * @property integer $id
  * @property string $name
+ * @property string $alias
  * @property string $url
  * @property string $image
  * @property boolean $is_activated
@@ -16,6 +17,7 @@
  * 
  * @method integer             getId()           Returns the current record's "id" value
  * @method string              getName()         Returns the current record's "name" value
+ * @method string              getAlias()        Returns the current record's "alias" value
  * @method string              getUrl()          Returns the current record's "url" value
  * @method string              getImage()        Returns the current record's "image" value
  * @method boolean             getIsActivated()  Returns the current record's "is_activated" value
@@ -24,6 +26,7 @@
  * @method Doctrine_Collection getTrack()        Returns the current record's "Track" collection
  * @method Artist              setId()           Sets the current record's "id" value
  * @method Artist              setName()         Sets the current record's "name" value
+ * @method Artist              setAlias()        Sets the current record's "alias" value
  * @method Artist              setUrl()          Sets the current record's "url" value
  * @method Artist              setImage()        Sets the current record's "image" value
  * @method Artist              setIsActivated()  Sets the current record's "is_activated" value
@@ -47,6 +50,12 @@ abstract class BaseArtist extends sfDoctrineRecord
              'primary' => true,
              ));
         $this->hasColumn('name', 'string', 255, array(
+             'type' => 'string',
+             'notnull' => true,
+             'unique' => true,
+             'length' => 255,
+             ));
+        $this->hasColumn('alias', 'string', 255, array(
              'type' => 'string',
              'notnull' => true,
              'unique' => true,

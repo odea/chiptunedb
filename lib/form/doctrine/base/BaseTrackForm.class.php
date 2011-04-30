@@ -19,6 +19,7 @@ abstract class BaseTrackForm extends BaseFormDoctrine
       'title'      => new sfWidgetFormInputText(),
       'number'     => new sfWidgetFormInputText(),
       'artist_id'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Artist'), 'add_empty' => false)),
+      'album_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Album'), 'add_empty' => false)),
       'created_at' => new sfWidgetFormDateTime(),
       'updated_at' => new sfWidgetFormDateTime(),
     ));
@@ -28,6 +29,7 @@ abstract class BaseTrackForm extends BaseFormDoctrine
       'title'      => new sfValidatorString(array('max_length' => 255)),
       'number'     => new sfValidatorString(array('max_length' => 255)),
       'artist_id'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Artist'))),
+      'album_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Album'))),
       'created_at' => new sfValidatorDateTime(),
       'updated_at' => new sfValidatorDateTime(),
     ));
