@@ -57,8 +57,6 @@ abstract class BaseArtist extends sfDoctrineRecord
              ));
         $this->hasColumn('alias', 'string', 255, array(
              'type' => 'string',
-             'notnull' => true,
-             'unique' => true,
              'length' => 255,
              ));
         $this->hasColumn('url', 'string', 255, array(
@@ -77,7 +75,6 @@ abstract class BaseArtist extends sfDoctrineRecord
         $this->hasColumn('country_id', 'integer', 8, array(
              'type' => 'integer',
              'notnull' => true,
-             'unique' => true,
              'length' => 8,
              ));
     }

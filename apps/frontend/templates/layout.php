@@ -20,9 +20,9 @@
 <div id="header">
 	<div id="menu">
 		<ul>
-			<li class="current_page_item"><a href="home">Home</a></li>
-			<li><a href="album">Albums</a></li>
-			<li><a href="artist">Artists</a></li>
+			<li class="current_page_item"><a href="homepage">Home</a></li>
+			<li><a href="<?php echo url_for('album/index') ?>">Albums</a></li>
+			<li><a href="<?php echo url_for('artist/index') ?>">Artists</a></li>
 			<li><a href="about">About</a></li>
 			<li class="last"><a href="contact">Contact</a></li>
 		</ul>

@@ -9,6 +9,10 @@
       <td><?php echo $artist->getName() ?></td>
     </tr>
     <tr>
+      <th>Alias:</th>
+      <td><?php echo $artist->getAlias() ?></td>
+    </tr>
+    <tr>
       <th>Url:</th>
       <td><?php echo $artist->getUrl() ?></td>
     </tr>

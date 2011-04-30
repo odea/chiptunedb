@@ -7,8 +7,10 @@
       <th>Title</th>
       <th>Image</th>
       <th>Year</th>
+      <th>Dl url</th>
       <th>Is activated</th>
       <th>Is va</th>
+      <th>Label</th>
       <th>Created at</th>
       <th>Updated at</th>
     </tr>
@@ -20,8 +22,10 @@
       <td><?php echo $album->getTitle() ?></td>
       <td><?php echo $album->getImage() ?></td>
       <td><?php echo $album->getYear() ?></td>
+      <td><?php echo $album->getDlUrl() ?></td>
       <td><?php echo $album->getIsActivated() ?></td>
       <td><?php echo $album->getIsVa() ?></td>
+      <td><?php echo $album->getLabelId() ?></td>
       <td><?php echo $album->getCreatedAt() ?></td>
       <td><?php echo $album->getUpdatedAt() ?></td>
     </tr>

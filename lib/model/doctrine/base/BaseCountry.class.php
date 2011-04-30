@@ -42,7 +42,6 @@ abstract class BaseCountry extends sfDoctrineRecord
              'type' => 'integer',
              'autoincrement' => true,
              'primary' => true,
-             'unique' => true,
              ));
         $this->hasColumn('iso', 'string', 2, array(
              'type' => 'string',

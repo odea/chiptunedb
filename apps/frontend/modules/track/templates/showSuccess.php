@@ -17,6 +17,10 @@
       <td><?php echo $track->getArtistId() ?></td>
     </tr>
     <tr>
+      <th>Album:</th>
+      <td><?php echo $track->getAlbumId() ?></td>
+    </tr>
+    <tr>
       <th>Created at:</th>
       <td><?php echo $track->getCreatedAt() ?></td>
     </tr>

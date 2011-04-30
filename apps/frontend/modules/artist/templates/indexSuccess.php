@@ -5,6 +5,7 @@
     <tr>
       <th>Id</th>
       <th>Name</th>
+      <th>Alias</th>
       <th>Url</th>
       <th>Image</th>
       <th>Is activated</th>
@@ -18,6 +19,7 @@
     <tr>
       <td><a href="<?php echo url_for('artist/show?id='.$artist->getId()) ?>"><?php echo $artist->getId() ?></a></td>
       <td><?php echo $artist->getName() ?></td>
+      <td><?php echo $artist->getAlias() ?></td>
       <td><?php echo $artist->getUrl() ?></td>
       <td><?php echo $artist->getImage() ?></td>
       <td><?php echo $artist->getIsActivated() ?></td>

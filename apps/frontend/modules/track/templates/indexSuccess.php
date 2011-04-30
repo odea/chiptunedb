@@ -7,6 +7,7 @@
       <th>Title</th>
       <th>Number</th>
       <th>Artist</th>
+      <th>Album</th>
       <th>Created at</th>
       <th>Updated at</th>
     </tr>
@@ -18,6 +19,7 @@
       <td><?php echo $track->getTitle() ?></td>
       <td><?php echo $track->getNumber() ?></td>
       <td><?php echo $track->getArtistId() ?></td>
+      <td><?php echo $track->getAlbumId() ?></td>
       <td><?php echo $track->getCreatedAt() ?></td>
       <td><?php echo $track->getUpdatedAt() ?></td>
     </tr>

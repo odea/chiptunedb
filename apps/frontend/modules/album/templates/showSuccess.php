@@ -17,12 +17,20 @@
       <td><?php echo $album->getYear() ?></td>
     </tr>
     <tr>
+      <th>Dl url:</th>
+      <td><?php echo $album->getDlUrl() ?></td>
+    </tr>
+    <tr>
       <th>Is activated:</th>
       <td><?php echo $album->getIsActivated() ?></td>
     </tr>
     <tr>
       <th>Is va:</th>
       <td><?php echo $album->getIsVa() ?></td>
+    </tr>
+    <tr>
+      <th>Label:</th>
+      <td><?php echo $album->getLabelId() ?></td>
     </tr>
     <tr>
       <th>Created at:</th>

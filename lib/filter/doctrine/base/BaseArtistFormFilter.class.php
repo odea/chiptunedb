@@ -14,7 +14,7 @@ abstract class BaseArtistFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'name'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'alias'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'alias'        => new sfWidgetFormFilterInput(),
       'url'          => new sfWidgetFormFilterInput(),
       'image'        => new sfWidgetFormFilterInput(),
       'is_activated' => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),

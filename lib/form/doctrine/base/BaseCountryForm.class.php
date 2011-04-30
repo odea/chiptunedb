@@ -34,7 +34,6 @@ abstract class BaseCountryForm extends BaseFormDoctrine
 
     $this->validatorSchema->setPostValidator(
       new sfValidatorAnd(array(
-        new sfValidatorDoctrineUnique(array('model' => 'Country', 'column' => array('id'))),
         new sfValidatorDoctrineUnique(array('model' => 'Country', 'column' => array('iso'))),
         new sfValidatorDoctrineUnique(array('model' => 'Country', 'column' => array('name'))),
         new sfValidatorDoctrineUnique(array('model' => 'Country', 'column' => array('printable_name'))),
